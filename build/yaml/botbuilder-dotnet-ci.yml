@@ -89,7 +89,7 @@ stages:
            Write-Host $library
 
            $threadName = $library.Split(".")[-1];
-           $multiconfig += "'" + $threadName + "':{'BotBuilderDll':'" + $library + "', 'containerImage':'windows:latest' }, ";
+           $multiconfig += "'" + $threadName + "':{'BotBuilderDll':'" + $library + "', 'vmImage':'windows-latest' }, ";
          }
        $multiconfig = $multiconfig.TrimEnd(' ').TrimEnd(',') + "}";
        $multiconfig
@@ -100,7 +100,6 @@ stages:
 
   - job: check_api_for
     dependsOn: generate_multiconfig_var
-    container: windows-latest
     timeoutInMinutes: 10
     strategy:
       maxParallel: 10
