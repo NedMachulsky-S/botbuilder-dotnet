@@ -104,6 +104,8 @@ stages:
 
   - job: check_api_for
     dependsOn: generate_multiconfig_var
+    pool:
+      vmImage: 'windows-2019'
     container: check_api_for_container
     timeoutInMinutes: 10
     strategy:
