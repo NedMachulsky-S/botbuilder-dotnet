@@ -6,13 +6,11 @@
 name: $(Build.BuildId)
 
 pool:
+  vmImage: 'windows-2019'
   name: Hosted Windows 2019 with VS2019
   demands:
   - msbuild
   - visualstudio
-
-pool:
-  vmImage: 'windows-2019'
 
 # No "paths exclude" here: not supported by github required status checks.
 trigger: # ci trigger
