@@ -22,6 +22,11 @@ pr: # pr trigger
     include:
      - master
 
+resources:
+  containers:
+  - container: check_api_for_container
+    image: windows-2019
+
 variables:
   ApiCompatVersion: 4.6.3
   BotBuilderDll: Microsoft.Bot.Builder.AI.Luis,Microsoft.Bot.Builder.AI.QnA,Microsoft.Bot.Builder.ApplicationInsights,Microsoft.Bot.Builder.Azure,Microsoft.Bot.Builder.Dialogs,Microsoft.Bot.Builder.Integration.ApplicationInsights.Core,Microsoft.Bot.Builder.Integration.AspNet.Core,Microsoft.Bot.Builder.TemplateManager,Microsoft.Bot.Builder.Testing,Microsoft.Bot.Builder,Microsoft.Bot.Configuration,Microsoft.Bot.Connector,Microsoft.Bot.Schema,Microsoft.Bot.Streaming
@@ -99,6 +104,7 @@ stages:
 
   - job: check_api_for
     dependsOn: generate_multiconfig_var
+    container: check_api_for_container
     timeoutInMinutes: 10
     strategy:
       maxParallel: 10
