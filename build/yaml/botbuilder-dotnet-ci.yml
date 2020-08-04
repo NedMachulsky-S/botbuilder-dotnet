@@ -25,7 +25,7 @@ pr: # pr trigger
 resources:
   containers:
   - container: check_api_for_container
-    image: windows-2019
+    image: ubuntu-16.04
 
 variables:
   ApiCompatVersion: 4.6.3
@@ -105,7 +105,7 @@ stages:
   - job: check_api_for
     dependsOn: generate_multiconfig_var
     pool:
-      vmImage: 'windows-2019'
+      vmImage: 'ubuntu-16.04'
     container: check_api_for_container
     timeoutInMinutes: 10
     strategy:
