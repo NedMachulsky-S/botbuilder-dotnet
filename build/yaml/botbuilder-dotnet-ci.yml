@@ -6,7 +6,7 @@
 name: $(Build.BuildId)
 
 pool:
-  vmImage: windows-latest
+  # vmImage: windows-latest
   name: Hosted Windows 2019 with VS2019
   demands:
   - msbuild
@@ -89,7 +89,7 @@ stages:
            Write-Host $library
 
            $threadName = $library.Split(".")[-1];
-           $multiconfig += "'" + $threadName + "':{'BotBuilderDll':'" + $library + "', 'vmImage':'windows-latest' }, ";
+           $multiconfig += "'" + $threadName + "':{'BotBuilderDll':'" + $library + "', 'vmImage':'Hosted Windows 2019 with VS2019' }, ";
          }
        $multiconfig = $multiconfig.TrimEnd(' ').TrimEnd(',') + "}";
        $multiconfig
