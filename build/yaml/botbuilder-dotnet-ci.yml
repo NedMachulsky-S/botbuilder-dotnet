@@ -22,11 +22,6 @@ pr: # pr trigger
     include:
      - master
 
-resources:
-  containers:
-  - container: check_api_for_container
-    image: ubuntu-16.04
-
 variables:
   ApiCompatVersion: 4.6.3
   BotBuilderDll: Microsoft.Bot.Builder.AI.Luis,Microsoft.Bot.Builder.AI.QnA,Microsoft.Bot.Builder.ApplicationInsights,Microsoft.Bot.Builder.Azure,Microsoft.Bot.Builder.Dialogs,Microsoft.Bot.Builder.Integration.ApplicationInsights.Core,Microsoft.Bot.Builder.Integration.AspNet.Core,Microsoft.Bot.Builder.TemplateManager,Microsoft.Bot.Builder.Testing,Microsoft.Bot.Builder,Microsoft.Bot.Configuration,Microsoft.Bot.Connector,Microsoft.Bot.Schema,Microsoft.Bot.Streaming
@@ -93,7 +88,7 @@ stages:
            Write-Host $library
 
            $threadName = $library.Split(".")[-1];
-           $multiconfig += "'" + $threadName + "':{'BotBuilderDll':'" + $library + "', 'containerResource':'check_api_for_container' }, ";
+           $multiconfig += "'" + $threadName + "':{'BotBuilderDll':'" + $library + "', 'containerImage':'Hosted Windows 2019 with VS2019' }, ";
          }
        $multiconfig = $multiconfig.TrimEnd(' ').TrimEnd(',') + "}";
        $multiconfig
@@ -104,9 +99,7 @@ stages:
 
   - job: check_api_for
     dependsOn: generate_multiconfig_var
-    pool:
-      vmImage: 'ubuntu-16.04'
-    container: check_api_for_container
+    container: Hosted Windows 2019 with VS2019
     timeoutInMinutes: 10
     strategy:
       maxParallel: 10
