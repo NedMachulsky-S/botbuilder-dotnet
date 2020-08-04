@@ -11,6 +11,9 @@ pool:
   - msbuild
   - visualstudio
 
+pool:
+  vmImage: 'windows-2019'
+
 # No "paths exclude" here: not supported by github required status checks.
 trigger: # ci trigger
   branches:
@@ -88,7 +91,7 @@ stages:
            Write-Host $library
 
            $threadName = $library.Split(".")[-1];
-           $multiconfig += "'" + $threadName + "':{'BotBuilderDll':'" + $library + "', 'containerImage':'Hosted Windows 2019 with VS2019' }, ";
+           $multiconfig += "'" + $threadName + "':{'BotBuilderDll':'" + $library + "', 'containerImage':'windows-2019' }, ";
          }
        $multiconfig = $multiconfig.TrimEnd(' ').TrimEnd(',') + "}";
        $multiconfig
@@ -99,7 +102,7 @@ stages:
 
   - job: check_api_for
     dependsOn: generate_multiconfig_var
-    container: Hosted Windows 2019 with VS2019
+    container: windows-2019
     timeoutInMinutes: 10
     strategy:
       maxParallel: 10
