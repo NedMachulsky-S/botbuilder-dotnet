@@ -89,7 +89,7 @@ stages:
            Write-Host $library
 
            $threadName = $library.Split(".")[-1];
-           $multiconfig += "'" + $threadName + "':{'BotBuilderDll':'" + $library + "', 'vmImage':'Hosted Windows 2019 with VS2019' }, ";
+           $multiconfig += "'" + $threadName + "':{'BotBuilderDll':'" + $library + "', 'vmImage':'windows-latest' }, ";
          }
        $multiconfig = $multiconfig.TrimEnd(' ').TrimEnd(',') + "}";
        $multiconfig
@@ -101,6 +101,8 @@ stages:
   - job: check_api_for
     dependsOn: generate_multiconfig_var
     timeoutInMinutes: 10
+    pool:
+      vmImage: windows-latest
     strategy:
       maxParallel: 10
       matrix: $[ dependencies.generate_multiconfig_var.outputs['generate_var.MULTICONFIG'] ]
