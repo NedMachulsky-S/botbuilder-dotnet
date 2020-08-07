@@ -19,6 +19,7 @@ steps:
   displayName: 'NuGet restore'
   inputs:
     restoreSolution: '$(Parameters.solution)'
+    restoreDirectory:  '$(NUGET_PACKAGES)'
 
 - task: VSBuild@1
   displayName: 'Build solution Microsoft.Bot.Builder.sln'
