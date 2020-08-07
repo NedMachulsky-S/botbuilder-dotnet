@@ -60,8 +60,8 @@ stages:
           Write-Host $cacheLocation
           
           Write-Host "##vso[task.setvariable variable=NUGET_PACKAGES;]$cacheLocation"
-
-    pwsh: true
+      pwsh: true
+      
     - task: Cache@2
       inputs:
         key: 'nuget | "$(Agent.OS)" | **/packages.config'
