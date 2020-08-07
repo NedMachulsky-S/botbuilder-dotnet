@@ -15,22 +15,6 @@ steps:
   inputs:
     versionSpec: 4.9.1
 
-- task: PowerShell@2
-  displayName: Cache Directory
-  inputs:
-    targetType: 'inline'
-    script: |
-      dir $(NUGET_PACKAGES)
-    pwsh: true
-  condition: succeededOrFailed()
-        
-- script: |
-   cd ..
-   dir *.* /s
-  displayName: 'Dir workspace'
-  continueOnError: true
-  condition: succeededOrFailed()
-
 - task: NuGetCommand@2
   displayName: 'NuGet restore'
   inputs:
