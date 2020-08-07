@@ -49,6 +49,7 @@ stages:
   - job: Cache_Nuget
     steps:
     - task: PowerShell@2
+      displayName: Create Cache Directory
       inputs:
         targetType: 'inline'
         script: |
@@ -58,6 +59,7 @@ stages:
         pwsh: true
 
     - task: Cache@2
+      displayName: Cache NuGet packages
       inputs:
         key: 'nuget | "$(Agent.OS)" | **/*.csproj'
         restoreKeys: |
@@ -65,7 +67,7 @@ stages:
           nuget
         path: $(NUGET_PACKAGES)
         cacheHitVar: CACHE_RESTORED
-      displayName: Cache NuGet packages
+
   - job: Debug_Windows_Configuration_21
     dependsOn: Cache_Nuget
     variables:
