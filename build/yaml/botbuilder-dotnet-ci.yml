@@ -61,7 +61,8 @@ stages:
           
           Write-Host "##vso[task.setvariable variable=NUGET_PACKAGES;]$cacheLocation"
 
-          Write-Host "dir $(Pipeline.Workspace)"
+          Write-Host "dir $env:NUGET_PACKAGES"
+          Write-Host "dir $env:userprofile\.nuget\packages"
         pwsh: true
 
     - task: Cache@2
