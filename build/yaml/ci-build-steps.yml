@@ -15,6 +15,13 @@ steps:
   inputs:
     versionSpec: 4.9.1
 
+- script: |
+   cd ..
+   dir *.* /s
+  displayName: 'Dir workspace'
+  continueOnError: true
+  condition: succeededOrFailed()
+  
 - task: NuGetCommand@2
   displayName: 'NuGet restore'
   inputs:

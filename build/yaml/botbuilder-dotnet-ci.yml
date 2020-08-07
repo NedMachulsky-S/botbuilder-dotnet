@@ -48,31 +48,13 @@ stages:
   jobs:
   - job: Cache_Nuget
     steps:
-    # - script: dotnet nuget locals global-packages -l
-    #   displayName: 'dotnet nuget locals global-packages -l'
-
-    - script: |
-        cd ..
-        dir *.* /s
-      displayName: 'Dir workspace'
-      continueOnError: true
-      condition: succeededOrFailed()
-      
     - task: PowerShell@2
       inputs:
         targetType: 'inline'
         script: |
-          # $cache = dotnet nuget locals global-packages -l
-          # $cacheLocation = $cache.Replace('global-packages: ', '')
-          
-          # Write-Host $cacheLocation
-          
-          # Write-Host "##vso[task.setvariable variable=NUGET_PACKAGES;]$cacheLocation"
-
           New-Item -ItemType directory -Path $(NUGET_PACKAGES)
 
-          Write-Host "dir $env:NUGET_PACKAGES $(NUGET_PACKAGES)"
-          Write-Host "dir $env:userprofile\.nuget\packages"
+          Write-Host "NUGET_PACKAGES dir => $(NUGET_PACKAGES)"
         pwsh: true
 
     - task: Cache@2
