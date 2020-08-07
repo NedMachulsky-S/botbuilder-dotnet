@@ -20,6 +20,14 @@ steps:
   inputs:
     restoreSolution: '$(Parameters.solution)'
 
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      Write-Host "dir $(NUGET_PACKAGES)"
+      Write-Host "dir $env:userprofile\.nuget\packages"
+    pwsh: true
+
 - task: VSBuild@1
   displayName: 'Build solution Microsoft.Bot.Builder.sln'
   inputs:
