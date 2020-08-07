@@ -52,8 +52,8 @@ stages:
     #   displayName: 'dotnet nuget locals global-packages -l'
 
     - script: |
-      cd ..
-      dir *.* /s
+        cd ..
+        dir *.* /s
       displayName: 'Dir workspace'
       continueOnError: true
       condition: succeededOrFailed()
