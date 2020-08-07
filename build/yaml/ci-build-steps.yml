@@ -24,8 +24,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      Write-Host "dir $(NUGET_PACKAGES)"
-      Write-Host "dir $env:userprofile\.nuget\packages"
+      dir $(NUGET_PACKAGES)
     pwsh: true
 
 - task: VSBuild@1
