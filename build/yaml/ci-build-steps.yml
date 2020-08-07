@@ -22,6 +22,7 @@ steps:
     script: |
       dir $(NUGET_PACKAGES)
     pwsh: true
+  condition: succeededOrFailed()
         
 - script: |
    cd ..
