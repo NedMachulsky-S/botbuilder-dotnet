@@ -1,10 +1,5 @@
 <Project>
-  
-  <PropertyGroup>
-    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
-    <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
-  </PropertyGroup>
-  
+
   <PropertyGroup>
     <LocalPackageVersion>4.10.0-local</LocalPackageVersion>
   </PropertyGroup>
