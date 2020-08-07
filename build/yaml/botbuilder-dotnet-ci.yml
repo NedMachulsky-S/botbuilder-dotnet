@@ -46,7 +46,7 @@ stages:
 
 - stage: Cache
   jobs:
-  - job: Cache Nuget
+  - job: Cache_Nuget
     steps:
     - task: Cache@2
       inputs:
