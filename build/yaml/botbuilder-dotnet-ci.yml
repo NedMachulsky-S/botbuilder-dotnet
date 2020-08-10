@@ -46,7 +46,7 @@ stages:
 
 - stage: Build
   jobs:
-  - job: Cache_Nuget_packages
+  - job: Cache_Nuget
     steps:
     - task: Cache@2
       displayName: Cache NuGet packages
