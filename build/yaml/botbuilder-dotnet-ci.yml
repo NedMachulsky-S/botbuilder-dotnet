@@ -46,23 +46,23 @@ stages:
 
 - stage: Build
   jobs:
-  - job: Cache_Nuget
-    steps:
-    # - task: Cache@2
-    #   displayName: Cache NuGet packages
-    #   inputs:
-    #     key: 'nuget | "$(Agent.OS)" | **/*.csproj'
-    #     restoreKeys: |
-    #       nuget | "$(Agent.OS)"
-    #       nuget
-    #     path: $(NUGET_PACKAGES)
-    - task: NuGetCommand@2
-      displayName: 'NuGet restore'
-      inputs:
-        restoreSolution: '$(Parameters.solution)'
+  # - job: Cache_Nuget
+  #   steps:
+  #   - task: Cache@2
+  #     displayName: Cache NuGet packages
+  #     inputs:
+  #       key: 'nuget | "$(Agent.OS)" | **/*.csproj'
+  #       restoreKeys: |
+  #         nuget | "$(Agent.OS)"
+  #         nuget
+  #       path: $(NUGET_PACKAGES)
+  #   - task: NuGetCommand@2
+  #     displayName: 'NuGet restore'
+  #     inputs:
+  #       restoreSolution: '$(Parameters.solution)'
 
   - job: Debug_Windows_Configuration_21
-    dependsOn: Cache_Nuget
+    # dependsOn: Cache_Nuget
     variables:
       BuildConfiguration: Debug-Windows
       BuildTarget: 'netcoreapp21' # set the TargetFramework property for tests to use netcoreapp2.1
@@ -71,7 +71,7 @@ stages:
     - template: ci-test-steps.yml
 
   - job: Debug_Windows_Configuration_31
-    dependsOn: Cache_Nuget
+    # dependsOn: Cache_Nuget
     variables:
       BuildConfiguration: Debug-Windows
       BuildTarget: 'netcoreapp31' # set the TargetFramework property for tests to use netcoreapp3.1
@@ -80,7 +80,7 @@ stages:
     - template: ci-test-steps.yml
 
   - job: Release_Windows_Configuration_21
-    dependsOn: Cache_Nuget
+    # dependsOn: Cache_Nuget
     variables:
       BuildConfiguration: Release-Windows
       BuildTarget: 'netcoreapp21' # set the TargetFramework property for tests to use netcoreapp2.1
@@ -90,7 +90,7 @@ stages:
     - template: ci-test-steps.yml
 
   - job: Release_Windows_Configuration_31
-    dependsOn: Cache_Nuget
+    # dependsOn: Cache_Nuget
     variables:
       BuildConfiguration: Release-Windows
       BuildTarget: 'netcoreapp31' # set the TargetFramework property for tests to use netcoreapp3.1
