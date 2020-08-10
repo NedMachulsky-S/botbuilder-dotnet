@@ -57,6 +57,10 @@ stages:
           nuget
         path: $(NUGET_PACKAGES)
         cacheHitVar: CACHE_RESTORED
+    - task: NuGetCommand@2
+      displayName: 'NuGet restore'
+      inputs:
+        restoreSolution: '$(Parameters.solution)'
 
   - job: Debug_Windows_Configuration_21
     dependsOn: Cache_Nuget
