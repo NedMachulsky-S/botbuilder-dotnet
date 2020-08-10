@@ -23,10 +23,10 @@ steps:
       nuget2 | "$(Agent.OS)"
     path: $(NUGET_PACKAGES)
 
-- task: NuGetCommand@2
-  displayName: 'NuGet restore'
-  inputs:
-    restoreSolution: '$(Parameters.solution)'
+# - task: NuGetCommand@2
+#   displayName: 'NuGet restore'
+#   inputs:
+#     restoreSolution: '$(Parameters.solution)'
 
 - task: VSBuild@1
   displayName: 'Build solution Microsoft.Bot.Builder.sln'
