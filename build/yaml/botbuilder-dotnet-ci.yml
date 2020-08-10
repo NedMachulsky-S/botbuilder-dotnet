@@ -48,15 +48,14 @@ stages:
   jobs:
   - job: Cache_Nuget
     steps:
-    - task: Cache@2
-      displayName: Cache NuGet packages
-      inputs:
-        key: 'nuget | "$(Agent.OS)" | **/*.csproj'
-        restoreKeys: |
-          nuget | "$(Agent.OS)"
-          nuget
-        path: $(NUGET_PACKAGES)
-        cacheHitVar: CACHE_RESTORED
+    # - task: Cache@2
+    #   displayName: Cache NuGet packages
+    #   inputs:
+    #     key: 'nuget | "$(Agent.OS)" | **/*.csproj'
+    #     restoreKeys: |
+    #       nuget | "$(Agent.OS)"
+    #       nuget
+    #     path: $(NUGET_PACKAGES)
     - task: NuGetCommand@2
       displayName: 'NuGet restore'
       inputs:
