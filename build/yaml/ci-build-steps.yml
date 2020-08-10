@@ -18,10 +18,9 @@ steps:
 - task: Cache@2
   displayName: Cache NuGet packages
   inputs:
-    key: 'nuget | "$(Agent.OS)" | **/*.csproj'
+    key: 'nuget2 | "$(Agent.OS)" | **/*.csproj'
     restoreKeys: |
-      nuget | "$(Agent.OS)"
-      nuget
+      nuget2 | "$(Agent.OS)"
     path: $(NUGET_PACKAGES)
 
 - task: NuGetCommand@2
