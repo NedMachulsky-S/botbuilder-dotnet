@@ -49,8 +49,8 @@ jobs:
     inputs:
       key: 'nuget | "$(cacheKey)" | "$(Agent.OS)" | **/*.csproj'
       restoreKeys: |
-        nuget | "$(date)" | "$(Agent.OS)"
-        nuget | "$(date)"
+        nuget | "$(cacheKey)" | "$(Agent.OS)"
+        nuget | "$(cacheKey)"
       path: $(NUGET_PACKAGES)
 
   - task: NuGetCommand@2
@@ -73,8 +73,8 @@ jobs:
     inputs:
       key: 'nuget | "$(cacheKey)" | "$(Agent.OS)" | **/*.csproj'
       restoreKeys: |
-        nuget | "$(date)" | "$(Agent.OS)"
-        nuget | "$(date)"
+        nuget | "$(cacheKey)" | "$(Agent.OS)"
+        nuget | "$(cacheKey)"
       path: $(NUGET_PACKAGES)
 
   - task: NuGetCommand@2
@@ -97,8 +97,8 @@ jobs:
     inputs:
       key: 'nuget | "$(cacheKey)" | "$(Agent.OS)" | **/*.csproj'
       restoreKeys: |
-        nuget | "$(date)" | "$(Agent.OS)"
-        nuget | "$(date)"
+        nuget | "$(cacheKey)" | "$(Agent.OS)"
+        nuget | "$(cacheKey)"
       path: $(NUGET_PACKAGES)
 
   - task: NuGetCommand@2
@@ -121,8 +121,8 @@ jobs:
     inputs:
       key: 'nuget | "$(cacheKey)" | "$(Agent.OS)" | **/*.csproj'
       restoreKeys: |
-        nuget | "$(date)" | "$(Agent.OS)"
-        nuget | "$(date)"
+        nuget | "$(cacheKey)" | "$(Agent.OS)"
+        nuget | "$(cacheKey)"
       path: $(NUGET_PACKAGES)
 
   - task: NuGetCommand@2
