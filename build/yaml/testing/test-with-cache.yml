@@ -40,7 +40,7 @@ jobs:
     BuildTarget: 'netcoreapp21' # set the TargetFramework property for tests to use netcoreapp2.1
   steps:
   - powershell: |
-     $cacheKey=$(Get-Date -Format "MM/yyyy") + "-" + $(Agent.JobName);
+     $cacheKey=$(Get-Date -Format "MM/yyyy") + "-" + "$(Agent.JobName)";
      Write-Host "##vso[task.setvariable variable=cacheKey]$cacheKey";
     displayName: 'Set date for NuGet cache variable'
 
@@ -64,7 +64,7 @@ jobs:
     BuildTarget: 'netcoreapp31' # set the TargetFramework property for tests to use netcoreapp3.1
   steps:
   - powershell: |
-     $cacheKey=$(Get-Date -Format "MM/yyyy") + "-" + $(Agent.JobName);
+     $cacheKey=$(Get-Date -Format "MM/yyyy") + "-" + "$(Agent.JobName)";
      Write-Host "##vso[task.setvariable variable=cacheKey]$cacheKey";
     displayName: 'Set cache key for NuGet packages'
 
@@ -88,7 +88,7 @@ jobs:
     BuildTarget: 'netcoreapp21' # set the TargetFramework property for tests to use netcoreapp2.1
   steps:
   - powershell: |
-     $cacheKey=$(Get-Date -Format "MM/yyyy") + "-" + $(Agent.JobName);
+     $cacheKey=$(Get-Date -Format "MM/yyyy") + "-" + "$(Agent.JobName)";
      Write-Host "##vso[task.setvariable variable=cacheKey]$cacheKey";
     displayName: 'Set cache key for NuGet packages'
 
@@ -112,7 +112,7 @@ jobs:
     BuildTarget: 'netcoreapp31' # set the TargetFramework property for tests to use netcoreapp3.1
   steps:
   - powershell: |
-     $cacheKey=$(Get-Date -Format "MM/yyyy") + "-" + $(Agent.JobName);
+     $cacheKey=$(Get-Date -Format "MM/yyyy") + "-" + "$(Agent.JobName)";
      Write-Host "##vso[task.setvariable variable=cacheKey]$cacheKey";
     displayName: 'Set cache key for NuGet packages'
 
