@@ -27,7 +27,6 @@ steps:
     restoreKeys: |
       nuget | "$(date)" | "$(Agent.OS)"
       nuget | "$(date)"
-      nuget
     path: $(NUGET_PACKAGES)
 
 - task: NuGetCommand@2
