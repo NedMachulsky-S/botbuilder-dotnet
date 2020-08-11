@@ -15,12 +15,19 @@ steps:
   inputs:
     versionSpec: 4.9.1
 
+- powershell: |
+   $date=Get-Date -Format "MM/yyyy";
+   Write-Host"##vso[task.setvariable variable=date]$date;
+  displayName: 'Set date for NuGet cache variable'
+
 - task: Cache@2
   displayName: Cache NuGet packages
   inputs:
-    key: 'nuget2 | "$(Agent.OS)" | **/*.csproj'
+    key: 'nuget | "$(date)" | "$(Agent.OS)" | **/*.csproj'
     restoreKeys: |
-      nuget2 | "$(Agent.OS)"
+      nuget | "$(date)" | "$(Agent.OS)"
+      nuget | "$(date)"
+      nuget
     path: $(NUGET_PACKAGES)
 
 - task: NuGetCommand@2
