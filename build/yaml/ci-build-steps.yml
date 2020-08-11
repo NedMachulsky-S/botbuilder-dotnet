@@ -17,7 +17,7 @@ steps:
 
 - powershell: |
    $date=Get-Date -Format "MM/yyyy";
-   Write-Host "##vso[task.setvariable variable=date]$date;
+   Write-Host "##vso[task.setvariable variable=date]$date";
   displayName: 'Set date for NuGet cache variable'
 
 - task: Cache@2
