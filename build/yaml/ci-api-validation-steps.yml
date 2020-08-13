@@ -1,8 +1,8 @@
 parameters:
-  dlls: []
+  dlls: ''
 
 steps:
-- ${{ each library in parameters.dlls }}:
+- ${{ each library in parameters.dlls.Split(",") }}:
   - script: 'echo "hola"'
   - powershell: |
       $a = "a,b,c"
