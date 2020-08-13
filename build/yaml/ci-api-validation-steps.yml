@@ -2,9 +2,11 @@ parameters:
   dlls: []
 
 steps:
-- powershell: |
-    $a = "a,b,c"
-    $b = $a.Split(",")
-    $b
+- ${{ each library in parameters.dlls }}:
+  - script: 'echo "hola"'
+  - powershell: |
+      $a = "a,b,c"
+      $b = $a.Split(",")
+      $b
 
-    $(parameters.dlls)
+      ${{ parameters.dlls }}
