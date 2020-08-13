@@ -1,5 +1,5 @@
 parameters:
-  libraries: []
+  dlls: []
 
 steps:
 - powershell: |
@@ -7,4 +7,4 @@ steps:
     $b = $a.Split(",")
     $b
 
-    $(parameters.libraries)
+    $(parameters.dlls)

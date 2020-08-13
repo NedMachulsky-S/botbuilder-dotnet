@@ -19,8 +19,15 @@ pr: # pr trigger
 pool:
   vmImage: 'ubuntu-16.04'
 
+parameters:
+  dlls: 
+    - a
+    - b
+
 jobs:
   - job: A
     steps:
       - template: ci-api-validation-steps.yml
+        parameters:
+          dlls: $[ parameters.dlls ]
       
