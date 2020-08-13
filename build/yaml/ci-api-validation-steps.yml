@@ -4,5 +4,5 @@ parameters:
 steps:
 - powershell: |
     $a = "a,b,c"
-    parameters.libraries = $a.Split(",")
-    ${{ parameters.libraries }}
+    $b = $a.Split(",")
+    $b
