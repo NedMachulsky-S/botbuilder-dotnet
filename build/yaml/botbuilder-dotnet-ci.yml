@@ -20,7 +20,9 @@ pool:
   vmImage: 'ubuntu-16.04'
 
 parameters:
-  dlls: 
+- name: dlls
+  displayName: Pool Image
+  values:
     - a
     - b
 
