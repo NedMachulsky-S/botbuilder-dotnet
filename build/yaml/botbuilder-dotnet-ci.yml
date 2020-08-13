@@ -27,5 +27,5 @@ jobs:
     steps:
       - template: ci-api-validation-steps.yml
         parameters:
-          dlls: ${{dlls.Split(",")}}
+          dlls: $[ $dlls.Split(",") ]
       
