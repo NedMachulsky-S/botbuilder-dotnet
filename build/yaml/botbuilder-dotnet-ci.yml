@@ -19,18 +19,8 @@ pr: # pr trigger
 pool:
   vmImage: 'ubuntu-16.04'
 
-resources:
-  containers:
-  - container: u14
-    image: ubuntu:14.04
-
 jobs:
   - job: A
-    container: u14
     steps:
-      - script: printenv
+      - template: ci-api-validation-steps.yml
       
-  - job: A2
-    container: u14
-    steps:
-      - script: printenv
