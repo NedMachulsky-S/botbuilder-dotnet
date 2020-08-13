@@ -31,5 +31,5 @@ jobs:
     steps:
       - template: ci-api-validation-steps.yml
         parameters:
-          dlls: $[ parameters.dlls ]
+          dlls: parameters.dlls
       
