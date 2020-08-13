@@ -3,5 +3,5 @@ parameters:
 
 steps:
 - powershell: |
-  echo ##vso[task.setvariable variable=libraries]"a,b,c".Split(',')
-  echo ${{ parameters.libraries }}
+    echo ##vso[task.setvariable variable=libraries]"a,b,c".Split(',')
+    echo ${{ parameters.libraries }}
