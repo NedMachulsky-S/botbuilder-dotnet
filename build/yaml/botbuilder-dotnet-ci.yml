@@ -19,17 +19,13 @@ pr: # pr trigger
 pool:
   vmImage: 'ubuntu-16.04'
 
-parameters:
-- name: dlls
-  displayName: Pool Image
-  values:
-    - a
-    - b
+variables:
+  dlls: "a,b,c"
 
 jobs:
   - job: A
     steps:
       - template: ci-api-validation-steps.yml
         parameters:
-          dlls: ${{parameters.dlls}}
+          dlls: ${{dlls.Split(",")}}
       
