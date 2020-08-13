@@ -6,3 +6,5 @@ steps:
     $a = "a,b,c"
     $b = $a.Split(",")
     $b
+
+    ${{ parameters.libraries }}
