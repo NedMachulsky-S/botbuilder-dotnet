@@ -3,5 +3,6 @@ parameters:
 
 steps:
 - powershell: |
-    parameters.libraries = "a,b,c".Split(',')
+    $a = "a,b,c"
+    parameters.libraries = $a.Split(",")
     ${{ parameters.libraries }}
