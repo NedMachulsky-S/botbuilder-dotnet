@@ -87,6 +87,7 @@ steps:
    
        Get-ChildItem -Path "*/$library/bin/$buildTarget/netstandard2.0/$library.dll" -Recurse | Copy-Item -Destination 'outputLibraries\' -Force
        Get-ChildItem -Path "*/*/$library/bin/$buildTarget/netstandard2.0/$library.dll" -Recurse | Copy-Item -Destination 'outputLibraries\' -Force
+       Get-ChildItem -Path "*/*/$library/bin/$buildTarget/netstandard2.0/$library.pdb" -Recurse | Copy-Item -Destination 'outputLibraries\' -Force
    }
   displayName: 'Copy DLLs to outputLibraries folder'
 
